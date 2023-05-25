@@ -1,0 +1,37 @@
+ALGORITHM checkpoint
+VAR
+// sentence length represent the number of characters in a sentence
+    s_length:INTEGER
+    // word count is the number of words in a sentence
+    w_count:INTEGER
+    // vowels count is the number of vowels in a sentence
+    v_count:INTEGER
+    // the actual sentence
+    sentence:STRING
+    // the variable to keep track of the index while alternating the sentence characters
+    char:CHAR
+    i:INTEGER
+BEGIN
+i:=1
+// using the while do loop to determine the sentence legnth
+WHILE (sentence[i]==TRUE) DO
+    i:=i+1
+    s_length:=s_length+1
+END WHILE
+// using a for loop starting from 1 till the end of the sentence
+    FOR i FROM 1 TO s_length STEP 1  DO 
+        char:=sentence[i]
+        IF char is " " THEN /*this condifiton determine that we've reach another one we get to a space character*/
+            w_count++
+            continue
+            ELSE_IF char is "." THEN /*this condition determine that we've reached the end of the sentencce because of the "." character*/
+                w_count++
+                break
+            ELSE_IF char=="a","e","u","i","o","y" THEN /*this condition counts the number of vowels every time we reach a character other than space and "."*/
+                v-count++
+        END_IF
+    END_FOR
+    write(w_count)/*displaying the word count*/
+    write(v_count)/*displaying the vowels count*/
+    write(s_length)/*displaying the sentence length*/
+END
